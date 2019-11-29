@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function posts() {
+      return $this->hasMany(Post::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -37,7 +41,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Profile() {
+    public function profile() {
       return $this->hasOne(Profile::class);
     }
 }
